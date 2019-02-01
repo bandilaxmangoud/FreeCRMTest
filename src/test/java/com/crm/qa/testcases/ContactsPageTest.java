@@ -71,11 +71,11 @@ public class ContactsPageTest extends TestBase{
 
 	}
 	
-	@DataProvider
+	/*@DataProvider
 	public Object[][] getCRMTestData(){
 		Object data[][] = TestUtil.getTestData(sheetName);
 		return data;
-	}
+	}*/
 	
 	
 	@Test(priority=4, dataProvider="getCRMTestData")

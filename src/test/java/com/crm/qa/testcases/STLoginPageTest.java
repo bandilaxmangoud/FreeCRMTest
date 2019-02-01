@@ -10,10 +10,17 @@ import com.crm.qa.pages.LoginPage;
 import com.crm.qa.pages.STHomePage;
 import com.crm.qa.pages.STLoginPage;
 
+import com.crm.qa.util.ExcelTest;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
+
 public class STLoginPageTest extends TestBase{
 	
 	STLoginPage stloginpage;
 	STHomePage sthomepage;
+	public ExtentReports extent;
+	public ExtentTest logger;
 	
 	public STLoginPageTest()
 	{
@@ -21,10 +28,11 @@ public class STLoginPageTest extends TestBase{
 	}
 	
 	@BeforeMethod
-	public void setUp()
+	public void setUp() throws Exception
 	{
 		initialization();
 		stloginpage=new STLoginPage();
+		
 	}
 
 	@Test
@@ -35,9 +43,14 @@ public class STLoginPageTest extends TestBase{
 	}
 	
 	@Test
-	public void stLoginTest()
+	public void stLoginTest() throws Exception
 	{
-		sthomepage=stloginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		//sthomepage=stloginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		//sthomepage=stloginpage.login();
+		ExcelTest eat = new ExcelTest(prop.getProperty("excelPath"));
+		sthomepage=stloginpage.login(eat.getCellData("Credentials","UserName",3),eat.getCellData("Credentials", "PassWord", 3));
+		
+		//sthomepage=stloginpage.login();
 	}
 	
 	

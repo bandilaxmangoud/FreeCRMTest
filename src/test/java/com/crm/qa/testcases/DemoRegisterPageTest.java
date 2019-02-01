@@ -8,11 +8,14 @@ import com.crm.qa.pages.DemoLoginPage;
 import com.crm.qa.pages.DemoRegisterPage;
 import com.crm.qa.pages.DemoWebTablePage;
 
+
+
 public class DemoRegisterPageTest extends TestBase{
 
 	DemoLoginPage dlp;
 	DemoRegisterPage drp;
 	DemoWebTablePage dwt;
+	
 	
 	
 	public DemoRegisterPageTest()
@@ -33,7 +36,15 @@ public class DemoRegisterPageTest extends TestBase{
 public void registration() throws InterruptedException
 {
 	Thread.sleep(5000);
-	dwt = drp.validateRegistration(prop.getProperty("firstname"), prop.getProperty("lastname"),prop.getProperty("address"), prop.getProperty("email"), prop.getProperty("phone"),prop.getProperty("pwd"),prop.getProperty("conpwd"));
+	dwt = drp.validateRegistration(
+			prop.getProperty("firstname"),
+			prop.getProperty("lastname"),
+			prop.getProperty("address"), 
+			prop.getProperty("email"), 
+			prop.getProperty("phone"),
+			prop.getProperty("pwd"),
+			prop.getProperty("conpwd")
+			);
 	
 }
 

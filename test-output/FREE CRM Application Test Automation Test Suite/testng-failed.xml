@@ -2,26 +2,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]">
   <listeners>
-    <listener class-name="com.qa.ExtentReportListener.ExtentReporterNG"/>
+    <listener class-name="com.qa.ExtentReportListener.TestListener"/>
+    <listener class-name="com.qa.ExtentReportListener.AnnotationTransformer"/>
   </listeners>
   <test name="Free CRM App Test Cases(failed)">
     <classes>
-      <class name="com.crm.qa.testcases.LoginPageTest">
+      <class name="com.crm.qa.testcases.STLoginPageTest">
         <methods>
-          <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="loginPageTitleTest"/>
-        </methods>
-      </class> <!-- com.crm.qa.testcases.LoginPageTest -->
-      <class name="com.crm.qa.testcases.ContactsPageTest">
-        <methods>
+          <include name="stLoginPageTestTitle"/>
           <include name="setUp"/>
-          <include name="selectMultipleContactsTest"/>
-          <include name="tearDown"/>
-          <include name="validateCreateNewContact"/>
-          <include name="selectSingleContactsTest"/>
         </methods>
-      </class> <!-- com.crm.qa.testcases.ContactsPageTest -->
+      </class> <!-- com.crm.qa.testcases.STLoginPageTest -->
     </classes>
   </test> <!-- Free CRM App Test Cases(failed) -->
 </suite> <!-- Failed suite [FREE CRM Application Test Automation Test Suite] -->

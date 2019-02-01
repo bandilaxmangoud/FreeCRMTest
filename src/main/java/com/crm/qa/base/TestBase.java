@@ -22,6 +22,7 @@ public class TestBase {
 	public static Properties prop;
 	public static EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
+	public static final String testDataExcelFileName = "D:\\WORK\\PageObjectModel-master\\src\\main\\java\\com\\crm\\qa\\testdata\\FreeCrmTestData.xlsx";
 
 	public TestBase() {
 		try {
@@ -64,6 +65,11 @@ public class TestBase {
 
 		driver.get(prop.getProperty("url"));
 
+	}
+
+	public WebDriver getDriver() {
+		// TODO Auto-generated method stub
+		return driver;
 	}
 
 }
