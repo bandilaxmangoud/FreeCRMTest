@@ -8,6 +8,7 @@ import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.STCreateReqPage;
 import com.crm.qa.pages.STHomePage;
 import com.crm.qa.pages.STLoginPage;
+import com.crm.qa.util.ExcelTest;
 import com.crm.qa.util.TestUtil;
 
 public class STHomePageTest extends TestBase{
@@ -23,12 +24,13 @@ public class STHomePageTest extends TestBase{
 	}
 	
 	@BeforeMethod
-	public void setUp() {
+	public void setUp() throws Exception {
 		initialization();
 		testUtil = new TestUtil();
-		stcreatereqpage = new STCreateReqPage();
+		//stcreatereqpage = new STCreateReqPage();
+		ExcelTest eat = new ExcelTest(prop.getProperty("excelPath"));
 		stloginpage = new STLoginPage();
-		sthomepage = stloginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		sthomepage = stloginpage.login(eat.getCellData("Credentials","UserName",3), eat.getCellData("Credentials", "PassWord", 3));
 	}
 	
 	
@@ -36,9 +38,9 @@ public class STHomePageTest extends TestBase{
 	public void selectClientName() throws InterruptedException
 	{
 		sthomepage.clickOnClientMenu();
-		sthomepage.selectClient("Thermo");
-		Thread.sleep(2000);
-		stcreatereqpage=sthomepage.clickOnCreateReqLink();
+		sthomepage.selectClient("Thermo");// hard coded value
+		Thread.sleep(5000);
+		stcreatereqpage=sthomepage.reqCreation();
 		Thread.sleep(2000);
 	}
 

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.crm.qa.base.TestBase;
+import com.crm.qa.util.Log;
 
 public class STLoginPage extends TestBase{
 	
@@ -30,8 +31,11 @@ public class STLoginPage extends TestBase{
 	
 	public STHomePage login(String un, String pwd)
 	{
+		Log.info("entered username");
 		username.sendKeys(un);
+		Log.info("entered password");
 		password.sendKeys(pwd);
+		Log.info("clicled on signin button");
 		loginBtn.click();
 		
 		return new STHomePage();
